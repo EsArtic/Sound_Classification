@@ -7,7 +7,7 @@ import h5py
 
 RAW_TRAIN = '../raw/Train/'
 CSV_TRAIN = '../raw/train.csv'
-DIST = '../extracted_data.hdf5'
+DIST = '../data/extracted_data.hdf5'
 
 RAW_TEST = '../raw/Test/'
 CSV_TEST = '../raw/modified_test.csv'
@@ -30,6 +30,7 @@ def extract(train_source, train_csv, test_source, test_csv, distination):
 
     labels = []
     datas = []
+    print('Extracting train set audio...')
     for row in tqdm(train_index.itertuples()):
         x, sample_rate = librosa.load(train_source + str(row.ID) + '.wav', duration = 2.97)
         ps = librosa.feature.melspectrogram(y = x, sr = sample_rate)
@@ -45,7 +46,6 @@ def extract(train_source, train_csv, test_source, test_csv, distination):
             paddings = np.array(paddings)
             ps = np.concatenate((ps, paddings.T), axis = 1)
 
-        ids.append(row.ID)
         labels.append(classes[row.Class])
         datas.append(ps)
 
@@ -57,6 +57,7 @@ def extract(train_source, train_csv, test_source, test_csv, distination):
 
     labels = []
     datas = []
+    print('Extracting test set audio...')
     for row in tqdm(test_index.itertuples()):
         x, sample_rate = librosa.load(test_source + str(row.ID) + '.wav', duration = 2.97)
         ps = librosa.feature.melspectrogram(y = x, sr = sample_rate)
@@ -72,9 +73,11 @@ def extract(train_source, train_csv, test_source, test_csv, distination):
             paddings = np.array(paddings)
             ps = np.concatenate((ps, paddings.T), axis = 1)
 
-        ids.append(row.ID)
         labels.append(classes[row.Class])
         datas.append(ps)
+
+    labels = np.array(labels)
+    datas = np.array(datas)
 
     h5_out.create_dataset('test_label', data = labels)
     h5_out.create_dataset('test_data', data = datas)

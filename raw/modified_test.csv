@@ -132,7 +132,7 @@ ID,Class
 4576,dog_bark
 4577,street_music
 4579,air_conditioner
-4580,street_music 
+4580,street_music
 4582,jackhammer
 4586,siren
 4587,jackhammer
@@ -335,7 +335,7 @@ ID,Class
 5120,dog_bark
 5123,drilling
 5124,children_playing
-5126,children playing
+5126,children_playing
 5131,gun_shot
 5136,gun_shot
 5137,car_horn
@@ -790,7 +790,7 @@ ID,Class
 6254,gun_shot
 6257,children_playing
 6261,air_conditioner
-6264,childern_playing
+6264,children_playing
 6267,dog_bark
 6269,jackhammer
 6273,drilling
