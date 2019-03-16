@@ -1,0 +1,18 @@
+1. Very small sound: 4355
+2. Confusion of jackhammer and engine_idling: 4258, 4582, 4859
+3. Mainly bird chirping, but no other things heard: 4340, 4441, 4579, 4656, 4831
+4. Combination of jackhammer and drilling: 4391
+5. birds & dog(a little bit) & siren: 4398, 4434
+6. Wired: 4423, 5273
+7. Too short: 4495, 5541, 6157
+8. Completely no sound: 4497, 4797
+9. Someone imitating dog bark: 4518
+10. Actually just talking on the street without music: 4551, 4560, 4606, 4980, 5208, 5538, 5632
+11. Confusion of air_conditioner and jackhammer: 4615
+12. CAT & dog: 5282
+13. music or siren?: 5298
+14. Like cooking (gun_shot): 5451
+15. Video game (children playing or siren?): 5643, 5823
+16. Playing water: 5756
+17. Dog bark like music: 5873
+18. Car horn like music: 6008
