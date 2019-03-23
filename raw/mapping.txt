@@ -1,1 +1,0 @@
-{'siren': 0, 'street_music': 1, 'drilling': 2, 'dog_bark': 3, 'children_playing': 4, 'gun_shot': 5, 'engine_idling': 6, 'air_conditioner': 7, 'jackhammer': 8, 'car_horn': 9}

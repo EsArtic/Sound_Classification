@@ -2,11 +2,10 @@ import librosa
 import librosa.display
 
 def main():
-    y1, sr1 = librosa.load('../raw/Train/1021.wav', duration = 2.97)
-    # y1, sr1 = librosa.load('../raw/Test/102.wav', duration = 2.97)
+    y1, sr1 = librosa.load('../raw/audio/fold1/101415-3-0-2.wav', duration = 2.97)
     ps = librosa.feature.melspectrogram(y = y1, sr = sr1)
 
-    out = open('../temp/1021.txt', 'w')
+    out = open('../temp/temp_feature.txt', 'w')
     N, M = ps.shape
     for i in range(N):
         for j in range(M):
