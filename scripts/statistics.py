@@ -5,8 +5,7 @@ import pandas as pd
 import numpy as np
 import h5py
 
-DIST_TRAIN = '../data/extracted_spectrogram_data.hdf5'
-MODELS = '../models/CNN_Classifier_Epoch_50_Fold_'
+import argparse
 
 CATEGORIES = 10
 mapping = {
@@ -66,7 +65,32 @@ def get_statistics(predict, y):
     return total_acc, precision, recall
 
 def main():
-    data, labels = load_data(DIST_TRAIN)
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-s', '--source', type = str, required = True,
+                        help = 'The path of the extracted data features.')
+    parser.add_argument('-e', '--epoch', type = int, required = True,
+                        help = 'The number of epoches for training.')
+    parser.add_argument('-m', '--model', type = str, required = False, default = 'cnn',
+                        help = 'The model used for training: {cnn, fnn}.')
+    parser.add_argument('-p', '--param', type = int, required = False, default = 3,
+                        help = 'The param for cnn, fnn model: {2, 3, 4}.')
+    args = parser.parse_args()
+
+    if not (args.model == 'cnn' or args.model == 'fnn'):
+        print('Incorrect model selection.')
+        return
+
+    if not (args.param == 2 or args.param == 3 or args.param == 4):
+        print('Incorrect model param.')
+        return
+
+    prefix = '../models/'
+    if args.model == 'cnn':
+        prefix += 'CNN_Classifier_Layer_' + str(args.param) + '_Epoch_' + str(args.epoch) + '_Fold_'
+    elif args.model == 'fnn':
+        prefix += 'FNN_Classifier_Layer_' + str(args.param) + '_Epoch_' + str(args.epoch) + '_Fold_'
+
+    data, labels = load_data(args.source)
 
     accuracys = []
     acc_count = 0
@@ -79,7 +103,7 @@ def main():
         recalls[i] = []
 
     for i in tqdm(range(CATEGORIES)):
-        model = load_model(MODELS + str(i + 1) + '.h5')
+        model = load_model(prefix + str(i + 1) + '.h5')
 
         X = data[i]
         input_shape = (X[0].shape[0], X[0].shape[1], 1)
