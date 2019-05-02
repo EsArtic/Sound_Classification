@@ -26,6 +26,7 @@ The augmentation data set would be generated.
 
 ### 3. Run extract_feature.sh
 The Melspectrogram features would be generated. If you want to extract other features, you can use the following command to get the usage of extact_data.py:
+
     * python extract_data.py --help
 
 ### 4. Run train.sh
@@ -37,4 +38,5 @@ The Melspectrogram features would be generated. If you want to extract other fea
 
 ### 5. Run statistics.sh
 Two statistics files would be generated (./log/precision.csv and ./log/recall.csv). Similarly, you can use the following command to get the usage of statistics.py:
+    
     * python statistics.py --help
