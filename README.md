@@ -18,7 +18,7 @@ This program is implemented by python 3.6. Before running the program, please ma
 
 ## Running
 The procedure of running this program:
-### 1.Run download.sh
+### 1. Run download.sh
 The UrbanSound8K dataset would be downloaded an decompress.
 
 ### 2. Run augmentation.sh
