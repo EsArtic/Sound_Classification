@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if [ ! -d "./raw" ]; then
+    mkdir raw
+fi
+
 cd ./raw
 wget https://zenodo.org/record/1203745/files/UrbanSound8K.tar.gz
 tar -xzvf UrbanSound8K.tar.gz

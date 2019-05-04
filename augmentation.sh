@@ -1,7 +1,10 @@
 #!/bin/bash
 
 cd ./raw
-rm -rf augmentation
+
+if [ -d "./augmentation" ]; then
+    rm -rf augmentation
+fi
 
 mkdir augmentation
 cd ./augmentation
